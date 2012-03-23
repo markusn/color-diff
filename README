@@ -1,0 +1,17 @@
+################################################################################
+# color_diff.js
+################################################################################
+Implemets the CIEDE2000 color difference algorithm.
+
+Tests:
+There are some tests in color_diff_tests.js, run with:
+node color_diff_test.js
+
+Usage:
+color_diff.ciede2000({'L' : <L1>, 'a': <a1>, 'b': <b1>},{'L' : <L2>, 'a': <a2>, 'b': <b2>});
+
+Author:
+Markus Näsman
+
+License:
+See COPYING
