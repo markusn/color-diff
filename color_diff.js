@@ -120,7 +120,7 @@ function ciede2000(c1,c2)
   var RC = sqrt((pow(a_Cp, 7.0)) / (pow(a_Cp, 7.0) + pow(25.0, 7.0)));//(17)
   var SL = 1 + ((0.015 * pow(a_L - 50, 2)) / sqrt(20 + pow(a_L - 50, 2.0)));//(18)
   var SC = 1 + 0.045 * a_Cp;//(19)
-  var SH = S_H = 1 + 0.015 * a_Cp * T;//(20)
+  var SH = 1 + 0.015 * a_Cp * T;//(20)
   var RT = -2 * RC * sin(radians(2 * d_ro));//(21)
   var dE = sqrt(pow(dLp /(SL * kL), 2) + pow(dCp /(SC * kC), 2) + pow(dHp /(SH * kH), 2) + RT * (dCp /(SC * kC)) * (dHp / (SH * kH))); //(22)
   return dE;
