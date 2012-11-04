@@ -67,6 +67,7 @@ function rgb_to_xyz(c)
 */
 function xyz_to_lab(c)
 {
+  // Based on http://www.easyrgb.com/index.php?X=MATH&H=07
   var ref_Y = 100.000;
   var ref_Z = 108.883;
   var ref_X = 95.047; // Observer= 2°, Illuminant= D65
