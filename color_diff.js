@@ -63,7 +63,8 @@ function ciede2000(c1,c2)
 
   var a_C1_C2 = (C1+C2)/2.0;             //(3)
 
-  var G = 0.5 * (1 - sqrt(pow(a_C1_C2 , 7.0) / (pow(a_C1_C2, 7.0) + pow(25.0, 7.0)))); //(4)
+  var G = 0.5 * (1 - sqrt(pow(a_C1_C2 , 7.0) /
+                          (pow(a_C1_C2, 7.0) + pow(25.0, 7.0)))); //(4)
 
   var a1p = (1.0 + G) * a1; //(5)
   var a2p = (1.0 + G) * a2; //(5)
@@ -115,14 +116,18 @@ function ciede2000(c1,c2)
     else                                                throw(error);
   }
   var a_hp = a_hp_f(C1,C2,h1p,h2p); //(14)
-  var T = 1-0.17*cos(radians(a_hp-30))+0.24*cos(radians(2*a_hp))+0.32*cos(radians(3*a_hp+6))-0.20*cos(radians(4*a_hp-63)); //(15)
+  var T = 1-0.17*cos(radians(a_hp-30))+0.24*cos(radians(2*a_hp))+
+    0.32*cos(radians(3*a_hp+6))-0.20*cos(radians(4*a_hp-63)); //(15)
   var d_ro = 30 * exp(-(pow((a_hp-275)/25,2))); //(16)
   var RC = sqrt((pow(a_Cp, 7.0)) / (pow(a_Cp, 7.0) + pow(25.0, 7.0)));//(17)
-  var SL = 1 + ((0.015 * pow(a_L - 50, 2)) / sqrt(20 + pow(a_L - 50, 2.0)));//(18)
+  var SL = 1 + ((0.015 * pow(a_L - 50, 2)) /
+                sqrt(20 + pow(a_L - 50, 2.0)));//(18)
   var SC = 1 + 0.045 * a_Cp;//(19)
   var SH = 1 + 0.015 * a_Cp * T;//(20)
   var RT = -2 * RC * sin(radians(2 * d_ro));//(21)
-  var dE = sqrt(pow(dLp /(SL * kL), 2) + pow(dCp /(SC * kC), 2) + pow(dHp /(SH * kH), 2) + RT * (dCp /(SC * kC)) * (dHp / (SH * kH))); //(22)
+  var dE = sqrt(pow(dLp /(SL * kL), 2) + pow(dCp /(SC * kC), 2) +
+                pow(dHp /(SH * kH), 2) + RT * (dCp /(SC * kC)) *
+                (dHp / (SH * kH))); //(22)
   return dE;
 }
 
@@ -131,3 +136,8 @@ function ciede2000(c1,c2)
  */
 function degrees(n) { return n*(180/PI); }
 function radians(n) { return n*(PI/180); }
+
+// Local Variables:
+// allout-layout: t
+// js-indent-level: 2
+// End:

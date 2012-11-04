@@ -1,14 +1,18 @@
 ################################################################################
 # color_diff.js
 ################################################################################
-Implemets the CIEDE2000 color difference algorithm.
+Implemets the CIEDE2000 color difference algorithm and conversion between RGB
+and lab color.
 
 Tests:
-There are some tests in color_diff_tests.js, run with:
+There are some tests in color_diff_test.js and color_convert_test.js, run with:
 node color_diff_test.js
+node color_convert_test.js
 
 Usage:
-color_diff.ciede2000({'L' : <L1>, 'a': <a1>, 'b': <b1>},{'L' : <L2>, 'a': <a2>, 'b': <b2>});
+color_diff.ciede2000({'L' : <L1>, 'a': <a1>, 'b': <b1>},
+                     {'L' : <L2>, 'a': <a2>, 'b': <b2>});
+color_convert.rgb_to_lab({'R' : <R>, 'G': <G>, 'B': <B>});
 
 Author:
 Markus Näsman

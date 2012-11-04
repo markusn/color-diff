@@ -62,3 +62,8 @@ function round(n){ return Math.round(n*10000)/10000; }
  */
 // Run CIEDE2000 tests
 ciede2000_test();
+
+// Local Variables:
+// allout-layout: t
+// js-indent-level: 2
+// End:
