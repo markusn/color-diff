@@ -1,18 +1,27 @@
 ################################################################################
 # color_diff.js
 ################################################################################
-Implemets the CIEDE2000 color difference algorithm and conversion between RGB
-and lab color.
+Implemets the CIEDE2000 color difference algorithm, conversion between RGB
+and lab color and mapping all (RGB) colors in palette a to the closest color in
+palette b based on the CIEDE2000 difference.
 
 Tests:
 There are some tests in color_diff_test.js and color_convert_test.js, run with:
 node color_diff_test.js
 node color_convert_test.js
+node color_palette_test.js
 
 Usage:
-color_diff.ciede2000({'L' : <L1>, 'a': <a1>, 'b': <b1>},
-                     {'L' : <L2>, 'a': <a2>, 'b': <b2>});
-color_convert.rgb_to_lab({'R' : <R>, 'G': <G>, 'B': <B>});
+> var rgbcolor1     = {'R' : 255, 'G': 255, 'B': 255});
+> var rgbcolor2     = {'R' : 0, 'G': 0, 'B': 0});
+> var labcolor1     = color_convert.rgb_to_lab(rgbcolor1);
+> var labcolor2     = color_convert.rgb_to_lab(rgbcolor2);
+> var diff          = color_diff.ciede2000(labcolor1, labcolor2);
+> var palette_map   = color_palette.map_palette([rgbcolor1, rgbcolor2], [rgbcolor1]);
+> var rgbcolor2key  = palette_map_key(rgbcolor2)
+> var rgbcolor2prim = palette_map[rgbcolor2key];
+> rgbcolor1 == rgbcolor2prim
+true
 
 Author:
 Markus Näsman
