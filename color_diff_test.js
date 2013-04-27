@@ -24,7 +24,8 @@ var color_diff = require('./color_diff.js');
 function ciede2000_test()
 {
   console.log("Starting color_diff.ciede2000 test");
-  assert.equal(2.0425, round(color_diff.ciede2000({'L' : 50.0000,
+  assert.equal(2.0425, round(color_diff.ciede2000(
+              {'L' : 50.0000,
 						   'a' : 2.6772,
 						   'b' : -79.7751
 						  },
@@ -32,7 +33,8 @@ function ciede2000_test()
 						   'a' : 0.0000,
 						   'b' : -82.7485
 						  })));
-  assert.equal(2.8615, round(color_diff.ciede2000({'L' : 50.0000,
+  assert.equal(2.8615, round(color_diff.ciede2000(
+              {'L' : 50.0000,
 						   'a' : 3.1571,
 						   'b' : -77.2803
 						  },
@@ -40,7 +42,8 @@ function ciede2000_test()
 						   'a' : 0.0000,
 						   'b' : -82.7485
 						  })));
-  assert.equal(0.9082, round(color_diff.ciede2000({'L' : 2.0776,
+  assert.equal(0.9082, round(color_diff.ciede2000(
+              {'L' : 2.0776,
 						   'a' : 0.0795,
 						   'b' : -1.1350
 						  },
