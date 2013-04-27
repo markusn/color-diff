@@ -2,16 +2,17 @@
 # color_diff.js
 ################################################################################
 Implemets the CIEDE2000 color difference algorithm, conversion between RGB
-and lab color and mapping all (RGB) colors in palette a to the closest color in
-palette b based on the CIEDE2000 difference.
+and lab color and mapping all colors in palette X to the closest color in
+palette Y based on the CIEDE2000 difference.
 
 Tests:
-There are some tests in color_diff_test.js and color_convert_test.js, run with:
+There are some tests in color_diff_test.js, color_palette_test and
+color_convert_test.js, run with:
 node color_diff_test.js
 node color_convert_test.js
 node color_palette_test.js
 
-Usage:
+Example usage:
 > var rgbcolor1     = {'R' : 255, 'G': 255, 'B': 255});
 > var rgbcolor2     = {'R' : 0, 'G': 0, 'B': 0});
 > var labcolor1     = color_convert.rgb_to_lab(rgbcolor1);
