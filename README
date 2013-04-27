@@ -18,7 +18,7 @@ Usage:
 > var labcolor2     = color_convert.rgb_to_lab(rgbcolor2);
 > var diff          = color_diff.ciede2000(labcolor1, labcolor2);
 > var palette_map   = color_palette.map_palette([rgbcolor1, rgbcolor2], [rgbcolor1]);
-> var rgbcolor2key  = palette_map_key(rgbcolor2)
+> var rgbcolor2key  = color_palette.palette_map_key(rgbcolor2)
 > var rgbcolor2prim = palette_map[rgbcolor2key];
 > rgbcolor1 == rgbcolor2prim
 true
