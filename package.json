@@ -24,5 +24,8 @@
   "gitHead": "61269601ac72e65afd111565bfa68a2d13092de0",
   "bugs": {
     "url": "https://github.com/kaelzhang/color-diff/issues"
+  },
+  "devDependencies": {
+    "assert": "~0.4.9"
   }
 }
