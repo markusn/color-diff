@@ -1,0 +1,28 @@
+{
+  "name": "color-diff",
+  "version": "0.1.0",
+  "description": "Implemets the CIEDE2000 color difference algorithm, conversion between RGB and lab color and mapping all colors in palette X to the closest color in palette Y based on the CIEDE2000 difference.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/color-diff.git"
+  },
+  "keywords": [
+    "color",
+    "diff",
+    "color-diff",
+    "pallette",
+    "closest",
+    "convert"
+  ],
+  "author": "markusn kael",
+  "license": "BSD",
+  "readmeFilename": "README",
+  "gitHead": "61269601ac72e65afd111565bfa68a2d13092de0",
+  "bugs": {
+    "url": "https://github.com/kaelzhang/color-diff/issues"
+  }
+}
