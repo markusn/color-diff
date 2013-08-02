@@ -11,8 +11,10 @@ Implemets the CIEDE2000 color difference algorithm, conversion between RGB and L
 
 ## Tests
 
+Are located in the `test/` folder and are run by:
+  
   npm test
-
+  
 ### diff.closest(color, palette)
 
 Returns the closest color.
