@@ -46,4 +46,4 @@ Color palette array which contains many `color`-like objects.
 Markus Näsman
 
 ## License
-See COPYING
+3-clause BSD. For details see `COPYING`.
