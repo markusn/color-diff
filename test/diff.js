@@ -64,7 +64,7 @@ describe('diff', function(){
                                                        'b' : -82.7485
                                                       })));
     });
-    it('should return expected difference #1', function(){
+    it('should return expected difference #3', function(){
       assert.equal(0.9082, round(color_diff.ciede2000({'L' : 2.0776,
                                                        'a' : 0.0795,
                                                        'b' : -1.1350
