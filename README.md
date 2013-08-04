@@ -10,18 +10,19 @@ Implemets the CIEDE2000 color difference algorithm, conversion between RGB and L
 ```bash
 npm install color-diff --save
 ```
-	
-## Usage
-	
-```js
-var diff = require('color-diff');
-```
 
 ## Tests
 
 Are located in the `test/` folder and are run by:
 
 	npm test
+
+	
+## Usage
+	
+```js
+var diff = require('color-diff');
+```
 
 ### diff.closest(color, palette)
 
