@@ -33,44 +33,48 @@ var assert        = require('assert');
 var color_palette = require('../lib/palette');
 
 /**
+ * CONSTANTS
+ */
+
+var white   = {'R':255 , 'G':255 ,'B':255};
+var black   = {'R':0   , 'G':0   ,'B':0};
+var navy    = {'R':0   , 'G':0   ,'B':128};
+var blue    = {'R':0   , 'G':0   ,'B':255};
+var yellow  = {'R':255 , 'G':255 ,'B':0};
+var gold    = {'R':255 , 'G':215 ,'B':0};
+var colors1 = [white, black, navy, blue, yellow, gold]
+var colors2 = [white, black, blue, gold]
+
+/**
  * TESTS
  */
 
-function map_palette_test()
-{
-  console.log("Starting palette.map_palette test");
-  white                                             = {'R':255 , 'G':255 ,'B':255};
-  black                                             = {'R':0   , 'G':0   ,'B':0};
-  navy                                              = {'R':0   , 'G':0   ,'B':128};
-  blue                                              = {'R':0   , 'G':0   ,'B':255};
-  yellow                                            = {'R':255 , 'G':255 ,'B':0};
-  gold                                              = {'R':255 , 'G':215 ,'B':0};
-  colors1                                           = [white, black, navy, blue, yellow, gold]
-  colors2                                           = [white, black, blue, gold]
-  expected1                                         = {};
-  expected2                                         = {};
-  expected1[color_palette.palette_map_key(white)]   = white;
-  expected1[color_palette.palette_map_key(black)]   = black;
-  expected1[color_palette.palette_map_key(navy)]    = navy;
-  expected1[color_palette.palette_map_key(blue)]    = blue;
-  expected1[color_palette.palette_map_key(yellow)]  = yellow;
-  expected1[color_palette.palette_map_key(gold)]    = gold;
-  expected2[color_palette.palette_map_key(white)]   = white;
-  expected2[color_palette.palette_map_key(black)]   = black;
-  expected2[color_palette.palette_map_key(navy)]    = blue;
-  expected2[color_palette.palette_map_key(blue)]    = blue;
-  expected2[color_palette.palette_map_key(yellow)]  = gold;
-  expected2[color_palette.palette_map_key(gold)]    = gold;
-  assert.deepEqual(expected1, color_palette.map_palette(colors1, colors1));
-  assert.deepEqual(expected2, color_palette.map_palette(colors1, colors2));
-  console.log("...Finished!");
-}
-
-/**
- * RUN TESTS
- */
-
-map_palette_test();
+describe('palette', function(){
+  describe('#map_palette()', function (){
+    it('should map all colors to themselves when possible',
+       function(){
+         var expected1                                    = {};
+         expected1[color_palette.palette_map_key(white)]  = white;
+         expected1[color_palette.palette_map_key(black)]  = black;
+         expected1[color_palette.palette_map_key(navy)]   = navy;
+         expected1[color_palette.palette_map_key(blue)]   = blue;
+         expected1[color_palette.palette_map_key(yellow)] = yellow;
+         expected1[color_palette.palette_map_key(gold)]   = gold;
+         assert.deepEqual(expected1, color_palette.map_palette(colors1, colors1));
+       });
+    it('should map navy->blue and yellow->gold when navy and yellow are missing',
+       function(){
+         var expected2                                    = {};
+         expected2[color_palette.palette_map_key(white)]  = white;
+         expected2[color_palette.palette_map_key(black)]  = black;
+         expected2[color_palette.palette_map_key(navy)]   = blue;
+         expected2[color_palette.palette_map_key(blue)]   = blue;
+         expected2[color_palette.palette_map_key(yellow)] = gold;
+         expected2[color_palette.palette_map_key(gold)]   = gold;
+         assert.deepEqual(expected2, color_palette.map_palette(colors1, colors2));
+       });
+  })
+});
 
 // Local Variables:
 // allout-layout: t
