@@ -1,7 +1,7 @@
 # Color-diff
 [![Build Status](https://travis-ci.org/markusn/color-diff.png)](https://travis-ci.org/markusn/color-diff)
 [![Coverage Status](https://coveralls.io/repos/markusn/color-diff/badge.png?branch=master)](https://coveralls.io/r/markusn/color-diff?branch=master)
-
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/markusn/color-diff/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Implemets the CIEDE2000 color difference algorithm, conversion between RGB and LAB color and mapping all colors in palette X to the closest color in palette Y based on the CIEDE2000 difference.
 
