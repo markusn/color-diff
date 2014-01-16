@@ -74,6 +74,13 @@ describe('diff', function(){
                                                        'b' : -0.5514
                                                       })));
     });
+    it('should throw error', function(){
+      assert.throws(
+        function(){ color_diff.ciede2000({'L':NaN, 'a':NaN, 'b':NaN},
+                                         {'L':0,'a':0,'b':0})
+                  },
+        Error)
+    });
   })
 });
 
