@@ -44,6 +44,7 @@ var yellow  = {'R':255 , 'G':255 ,'B':0};
 var gold    = {'R':255 , 'G':215 ,'B':0};
 var colors1 = [white, black, navy, blue, yellow, gold]
 var colors2 = [white, black, blue, gold]
+var colors3 = [white, black, yellow, blue]
 
 /**
  * TESTS
@@ -73,6 +74,18 @@ describe('palette', function(){
          expected2[color_palette.palette_map_key(gold)]   = gold;
          assert.deepEqual(expected2, color_palette.map_palette(colors1, colors2));
        });
+    it('should map white->black & black,navy,blue->yellow & yellow,gold->blue',
+       function(){
+         var expected3                                    = {};
+         expected3[color_palette.palette_map_key(white)]  = black;
+         expected3[color_palette.palette_map_key(black)]  = yellow;
+         expected3[color_palette.palette_map_key(navy)]   = yellow;
+         expected3[color_palette.palette_map_key(blue)]   = yellow;
+         expected3[color_palette.palette_map_key(yellow)] = blue;
+         expected3[color_palette.palette_map_key(gold)]   = blue;
+         assert.deepEqual(expected3, color_palette.map_palette(colors1, colors3, 'furthest'));
+       });
+
   })
 });
 
