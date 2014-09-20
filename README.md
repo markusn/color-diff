@@ -16,9 +16,9 @@ Are located in the `test/` folder and are run by:
 
 	npm test
 
-	
+
 ## Usage
-	
+
 ```js
 var diff = require('color-diff');
 ```
@@ -34,8 +34,23 @@ var palette = [ {R: 255, G: 0, B: 0 }, {R: 0, G: 255, B: 0 }, {R: 0, G: 0, B: 25
 
 diff.closest(color, palette); // {R: 255, G: 0, B: 0 }, red
 ```
-	
+
 The result above is obvious, but `diff.closest` could deal with more complicated cases.
+
+### diff.furthest(color, palette)
+
+Returns the most different color.
+
+```js
+var color = { R: 255, G: 255, B: 255 };
+// black, white
+var palette = [ {R: 0, G: 0, B: 0 }, {R: 255, G: 255, B: 255 } ];
+
+diff.furthest(color, palette); // {R: 0, G: 0, B: 0 }, black
+```
+
+The result above is obvious, but `diff.furthest` could deal with more complicated cases.
+
 
 #### color
 `Object`
