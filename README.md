@@ -59,7 +59,7 @@ The result above is obvious, but `diff.furthest` could deal with more complicate
 
 ```js
 { R: 255, G: 1, B: 0 }
-```	
+```
 
 #### palette
 
@@ -69,7 +69,7 @@ Color palette array which contains many `color`-like objects.
 
 
 ## Author
-Markus Näsman
+Markus Ekholm
 
 ## License
 3-clause BSD. For details see `COPYING`.
