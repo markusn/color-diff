@@ -56,6 +56,27 @@ describe('convert', function(){
                                                            'G' : 255,
                                                            'B' : 255})));
     });
+    it('should convert to expected lab color #4', function(){
+      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
+                       round_all(color_convert.rgba_to_lab({'R' : 255,
+                                                            'G' : 255,
+                                                            'B' : 255,
+                                                            'A' : 1.0})));
+    });
+    it('should convert to expected lab color #5', function(){
+      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
+                       round_all(color_convert.rgba_to_lab({'R' : 0,
+                                                            'G' : 0,
+                                                            'B' : 0,
+                                                            'A' : 0.0})));
+    });
+    it('should convert to expected lab color #6', function(){
+      assert.deepEqual({"L": 53.389, "a": 0.003, "b": -0.006},
+                       round_all(color_convert.rgba_to_lab({'R' : 0,
+                                                            'G' : 0,
+                                                            'B' : 0,
+                                                            'A' : 0.5})));
+    });
   })
 });
 
