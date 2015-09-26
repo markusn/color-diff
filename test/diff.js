@@ -418,6 +418,24 @@ describe('diff', function(){
                              "b" : -0.5514
                             });
     });
+    it("Same color should have 0.0 difference #1", function(){
+      assert_ciede2000_diff(0.0,
+                            {'L' : 100, 'a' : 0.005, 'b' : -0.010},
+                            {'L' : 100, 'a' : 0.005, 'b' : -0.010}
+                           );
+    });
+    it("Same color should have 0.0 difference #2", function(){
+      assert_ciede2000_diff(0.0,
+                            {'L' : 0.0, 'a' : 0.0, 'b' : 0.0},
+                            {'L' : 0.0, 'a' : 0.0, 'b' : 0.0}
+                           );
+    });
+    it("Black and white are very different", function(){
+      assert_ciede2000_diff(100.0,
+                            {'L' : 100, 'a' : 0.005, 'b' : -0.010},
+                            {'L' : 0.0, 'a' : 0.0, 'b' : 0.0}
+                           );
+    });
     it("should throw error", function(){
       assert.throws(
         function(){ color_diff.ciede2000({"L" : NaN,
