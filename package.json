@@ -1,6 +1,6 @@
 {
   "name": "color-diff",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Implemets the CIEDE2000 color difference algorithm, conversion between RGB and LAB color and mapping all colors in palette X to the closest or most different color in palette Y based on the CIEDE2000 difference.",
   "main": "lib/index.js",
   "scripts": {
@@ -18,7 +18,8 @@
     "closest",
     "convert",
     "conversion",
-    "CIEDE2000"
+    "CIEDE2000",
+    "ciede2000"
   ],
   "author": "markusn kael",
   "license": "BSD",
