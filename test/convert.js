@@ -19,8 +19,8 @@
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
  * DISCLAIMED. IN NO EVENT SHALL MARKUS EKHOLM BE LIABLE FOR ANY
  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES
+ * LOSS OF USE, DATA, OR PROFITS OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
@@ -29,67 +29,79 @@
 /**
  * IMPORTS
  */
-var assert        = require('assert');
-var color_convert = require('../lib/convert');
+let assert = require('assert')
+let color_convert = require('../lib/convert')
 
 /**
  * TESTS
  */
 
-describe('convert', function(){
-  describe('#rgb_to_lab()', function(){
-    it('should convert to expected lab color #1', function(){
-      assert.deepEqual({'L' : 40.473, 'a' : -6.106, 'b' : -21.417},
-                       round_all(color_convert.rgb_to_lab({'R' : 55,
-                                                           'G' : 100,
-                                                           'B' : 130})));
-    });
-    it('should convert to expected lab color #2', function(){
-      assert.deepEqual({'L' : 0, 'a' : 0, 'b' : 0},
-                       round_all(color_convert.rgb_to_lab({'R' : 0,
-                                                           'G' : 0,
-                                                           'B' : 0})));
-    });
-    it('should convert to expected lab color #3', function(){
-      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
-                       round_all(color_convert.rgb_to_lab({'R' : 255,
-                                                           'G' : 255,
-                                                           'B' : 255})));
-    });
-    it('should convert to expected lab color #4', function(){
-      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
-                       round_all(color_convert.rgba_to_lab({'R' : 255,
-                                                            'G' : 255,
-                                                            'B' : 255,
-                                                            'A' : 1.0})));
-    });
-    it('should convert to expected lab color #5', function(){
-      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
-                       round_all(color_convert.rgba_to_lab({'R' : 0,
-                                                            'G' : 0,
-                                                            'B' : 0,
-                                                            'A' : 0.0})));
-    });
-    it('should convert to expected lab color #6', function(){
+describe('convert', function () {
+  describe('#rgb_to_lab()', function () {
+    it('should convert to expected lab color #1', function () {
+      assert.deepEqual({'L': 40.473, 'a': -6.106, 'b': -21.417},
+        round_all(color_convert.rgb_to_lab({
+          'R': 55,
+          'G': 100,
+          'B': 130
+        })))
+    })
+    it('should convert to expected lab color #2', function () {
+      assert.deepEqual({'L': 0, 'a': 0, 'b': 0},
+        round_all(color_convert.rgb_to_lab({
+          'R': 0,
+          'G': 0,
+          'B': 0
+        })))
+    })
+    it('should convert to expected lab color #3', function () {
+      assert.deepEqual({'L': 100, 'a': 0.005, 'b': -0.010},
+        round_all(color_convert.rgb_to_lab({
+          'R': 255,
+          'G': 255,
+          'B': 255
+        })))
+    })
+    it('should convert to expected lab color #4', function () {
+      assert.deepEqual({'L': 100, 'a': 0.005, 'b': -0.010},
+        round_all(color_convert.rgba_to_lab({
+          'R': 255,
+          'G': 255,
+          'B': 255,
+          'A': 1.0
+        })))
+    })
+    it('should convert to expected lab color #5', function () {
+      assert.deepEqual({'L': 100, 'a': 0.005, 'b': -0.010},
+        round_all(color_convert.rgba_to_lab({
+          'R': 0,
+          'G': 0,
+          'B': 0,
+          'A': 0.0
+        })))
+    })
+    it('should convert to expected lab color #6', function () {
       assert.deepEqual({"L": 53.389, "a": 0.003, "b": -0.006},
-                       round_all(color_convert.rgba_to_lab({'R' : 0,
-                                                            'G' : 0,
-                                                            'B' : 0,
-                                                            'A' : 0.5})));
-    });
+        round_all(color_convert.rgba_to_lab({
+          'R': 0,
+          'G': 0,
+          'B': 0,
+          'A': 0.5
+        })))
+    })
   })
-});
+})
 
 /**
  * INTERNAL FUNCTIONS
  */
-function round_all(c){ return {'L' : round(c.L),
-                               'a' : round(c.a),
-                               'b' : round(c.b)};
-                     }
-function round(n){ return Math.round(n*1000)/1000; }
-
-// Local Variables:
-// allout-layout: t
-// js-indent-level: 2
-// End:
+function round_all(c) {
+  return {
+    'L': round(c.L),
+    'a': round(c.a),
+    'b': round(c.b)
+  }
+}
+function round(n) {
+  return Math.round(n * 1000) / 1000
+}
