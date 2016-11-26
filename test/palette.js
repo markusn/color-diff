@@ -30,7 +30,7 @@
  * IMPORTS
  */
 let assert = require('assert')
-let color_palette = require('../lib/palette')
+let color_palette = require('../dist/palette')
 
 /**
  * CONSTANTS

@@ -30,7 +30,7 @@
  * IMPORTS
  */
 let assert = require('assert')
-let color_convert = require('../lib/convert')
+let color_convert = require('../dist/convert')
 
 /**
  * TESTS

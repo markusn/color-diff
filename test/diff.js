@@ -30,7 +30,7 @@
  * IMPORTS
  */
 let assert = require('assert')
-let color_diff = require('../lib/diff')
+let color_diff = require('../dist/diff')
 
 /**
  * TESTS
