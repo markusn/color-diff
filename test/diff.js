@@ -29,8 +29,8 @@
 /**
  * IMPORTS
  */
-let assert = require('assert')
-let color_diff = require('../dist/diff')
+var assert = require('assert')
+var color_diff = require('../dist/diff')
 
 /**
  * TESTS

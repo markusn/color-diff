@@ -29,8 +29,8 @@
 /**
  * IMPORTS
  */
-let assert = require('assert')
-let color_convert = require('../dist/convert')
+var assert = require('assert')
+var color_convert = require('../dist/convert')
 
 /**
  * TESTS
