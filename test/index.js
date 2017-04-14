@@ -9,6 +9,10 @@ var color_convert = require('../lib/convert');
  * CONSTANTS
  */
 
+var pad = s => s.length === 1 ? "0" + s : s;
+var hex = n => pad(n.toString(16));
+var rgb_to_hex = c => `#${hex(c.R)}${hex(c.G)}${hex(c.B)}`;
+
 var white   = {'R':255 , 'G':255 ,'B':255};
 var black   = {'R':0   , 'G':0   ,'B':0};
 var navy    = {'R':0   , 'G':0   ,'B':128};
@@ -16,12 +20,12 @@ var blue    = {'R':0   , 'G':0   ,'B':255};
 var yellow  = {'R':255 , 'G':255 ,'B':0};
 var gold    = {'R':255 , 'G':215 ,'B':0};
 
-var whiteHex   = {'R':255 , 'G':255 ,'B':255};
-var blackHex   = {'R':0   , 'G':0   ,'B':0};
-var navyHex    = {'R':0   , 'G':0   ,'B':128};
-var blueHex    = {'R':0   , 'G':0   ,'B':255};
-var yellowHex  = {'R':255 , 'G':255 ,'B':0};
-var goldHex    = {'R':255 , 'G':215 ,'B':0};
+var whiteHex   = rgb_to_hex({'R':255 , 'G':255 ,'B':255});
+var blackHex   = rgb_to_hex({'R':0   , 'G':0   ,'B':0});
+var navyHex    = rgb_to_hex({'R':0   , 'G':0   ,'B':128});
+var blueHex    = rgb_to_hex({'R':0   , 'G':0   ,'B':255});
+var yellowHex  = rgb_to_hex({'R':255 , 'G':255 ,'B':0});
+var goldHex    = rgb_to_hex({'R':255 , 'G':215 ,'B':0});
 
 var colors1 = [white, black, navy, blue, yellow, gold]
 var colors2 = [white, black, blue, gold]
