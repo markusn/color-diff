@@ -9,9 +9,9 @@ var color_convert = require('../lib/convert');
  * CONSTANTS
  */
 
-var pad = s => s.length === 1 ? "0" + s : s;
-var hex = n => pad(n.toString(16));
-var rgb_to_hex = c => `#${hex(c.R)}${hex(c.G)}${hex(c.B)}`;
+var pad = function (s) { return s.length === 1 ? "0" + s : s; };
+var hex = function (n) { return pad(n.toString(16)); }
+var rgb_to_hex = function (c) { return "#" + hex(c.R) + hex(c.G) + hex(c.B); };
 
 var white   = {'R':255 , 'G':255 ,'B':255};
 var black   = {'R':0   , 'G':0   ,'B':0};
