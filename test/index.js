@@ -60,86 +60,86 @@ describe('index', function(){
   describe('process rgb', function (){
     it('should find correct closest colors',
       function() {
-         assert.deepEqual(colorDiff.process(white, colors1), white);
-         assert.deepEqual(colorDiff.process(black, colors1), black);
-         assert.deepEqual(colorDiff.process(navy, colors1), navy);
-         assert.deepEqual(colorDiff.process(blue, colors1), blue);
-         assert.deepEqual(colorDiff.process(yellow, colors1), yellow);
-         assert.deepEqual(colorDiff.process(gold, colors1), gold);
+         assert.deepEqual(colorDiff.closest(white, colors1), white);
+         assert.deepEqual(colorDiff.closest(black, colors1), black);
+         assert.deepEqual(colorDiff.closest(navy, colors1), navy);
+         assert.deepEqual(colorDiff.closest(blue, colors1), blue);
+         assert.deepEqual(colorDiff.closest(yellow, colors1), yellow);
+         assert.deepEqual(colorDiff.closest(gold, colors1), gold);
 
-         assert.deepEqual(colorDiff.process(white, colors2), white);
-         assert.deepEqual(colorDiff.process(black, colors2), black);
-         assert.deepEqual(colorDiff.process(navy, colors2), blue);
-         assert.deepEqual(colorDiff.process(blue, colors2), blue);
-         assert.deepEqual(colorDiff.process(yellow, colors2), gold);
-         assert.deepEqual(colorDiff.process(gold, colors2), gold);
+         assert.deepEqual(colorDiff.closest(white, colors2), white);
+         assert.deepEqual(colorDiff.closest(black, colors2), black);
+         assert.deepEqual(colorDiff.closest(navy, colors2), blue);
+         assert.deepEqual(colorDiff.closest(blue, colors2), blue);
+         assert.deepEqual(colorDiff.closest(yellow, colors2), gold);
+         assert.deepEqual(colorDiff.closest(gold, colors2), gold);
       });
     it('should find correct furthest colors',
       function() {
-         assert.deepEqual(colorDiff.process(white, colors3, true), black);
-         assert.deepEqual(colorDiff.process(black, colors3, true), yellow);
-         assert.deepEqual(colorDiff.process(navy, colors3, true), yellow);
-         assert.deepEqual(colorDiff.process(blue, colors3, true), yellow);
-         assert.deepEqual(colorDiff.process(yellow, colors3, true), blue);
-         assert.deepEqual(colorDiff.process(gold, colors3, true), blue);
+         assert.deepEqual(colorDiff.furthest(white, colors3), black);
+         assert.deepEqual(colorDiff.furthest(black, colors3), yellow);
+         assert.deepEqual(colorDiff.furthest(navy, colors3), yellow);
+         assert.deepEqual(colorDiff.furthest(blue, colors3), yellow);
+         assert.deepEqual(colorDiff.furthest(yellow, colors3), blue);
+         assert.deepEqual(colorDiff.furthest(gold, colors3), blue);
       });
   });
 
   describe('process hex', function (){
     it('should find correct closest colors',
       function() {
-         assert.deepEqual(colorDiff.process(whiteHex, colors1Hex), whiteHex);
-         assert.deepEqual(colorDiff.process(blackHex, colors1Hex), blackHex);
-         assert.deepEqual(colorDiff.process(navyHex, colors1Hex), navyHex);
-         assert.deepEqual(colorDiff.process(blueHex, colors1Hex), blueHex);
-         assert.deepEqual(colorDiff.process(yellowHex, colors1Hex), yellowHex);
-         assert.deepEqual(colorDiff.process(goldHex, colors1Hex), goldHex);
+         assert.deepEqual(colorDiff.closest(whiteHex, colors1Hex), whiteHex);
+         assert.deepEqual(colorDiff.closest(blackHex, colors1Hex), blackHex);
+         assert.deepEqual(colorDiff.closest(navyHex, colors1Hex), navyHex);
+         assert.deepEqual(colorDiff.closest(blueHex, colors1Hex), blueHex);
+         assert.deepEqual(colorDiff.closest(yellowHex, colors1Hex), yellowHex);
+         assert.deepEqual(colorDiff.closest(goldHex, colors1Hex), goldHex);
 
-         assert.deepEqual(colorDiff.process(whiteHex, colors2Hex), whiteHex);
-         assert.deepEqual(colorDiff.process(blackHex, colors2Hex), blackHex);
-         assert.deepEqual(colorDiff.process(navyHex, colors2Hex), blueHex);
-         assert.deepEqual(colorDiff.process(blueHex, colors2Hex), blueHex);
-         assert.deepEqual(colorDiff.process(yellowHex, colors2Hex), goldHex);
-         assert.deepEqual(colorDiff.process(goldHex, colors2Hex), goldHex);
+         assert.deepEqual(colorDiff.closest(whiteHex, colors2Hex), whiteHex);
+         assert.deepEqual(colorDiff.closest(blackHex, colors2Hex), blackHex);
+         assert.deepEqual(colorDiff.closest(navyHex, colors2Hex), blueHex);
+         assert.deepEqual(colorDiff.closest(blueHex, colors2Hex), blueHex);
+         assert.deepEqual(colorDiff.closest(yellowHex, colors2Hex), goldHex);
+         assert.deepEqual(colorDiff.closest(goldHex, colors2Hex), goldHex);
       });
 
     it('should find correct furthest colors',
       function() {
-         assert.deepEqual(colorDiff.process(whiteHex, colors3Hex, true), blackHex);
-         assert.deepEqual(colorDiff.process(blackHex, colors3Hex, true), yellowHex);
-         assert.deepEqual(colorDiff.process(navyHex, colors3Hex, true), yellowHex);
-         assert.deepEqual(colorDiff.process(blueHex, colors3Hex, true), yellowHex);
-         assert.deepEqual(colorDiff.process(yellowHex, colors3Hex, true), blueHex);
-         assert.deepEqual(colorDiff.process(goldHex, colors3Hex, true), blueHex);
+         assert.deepEqual(colorDiff.furthest(whiteHex, colors3Hex), blackHex);
+         assert.deepEqual(colorDiff.furthest(blackHex, colors3Hex), yellowHex);
+         assert.deepEqual(colorDiff.furthest(navyHex, colors3Hex), yellowHex);
+         assert.deepEqual(colorDiff.furthest(blueHex, colors3Hex), yellowHex);
+         assert.deepEqual(colorDiff.furthest(yellowHex, colors3Hex), blueHex);
+         assert.deepEqual(colorDiff.furthest(goldHex, colors3Hex), blueHex);
       });
   })
 
   describe('process hex prepared palette', function (){
     it('should find correct closest colors',
       function() {
-         assert.deepEqual(colorDiff.process(whiteHex, colors1HexPrepared), whiteHex);
-         assert.deepEqual(colorDiff.process(blackHex, colors1HexPrepared), blackHex);
-         assert.deepEqual(colorDiff.process(navyHex, colors1HexPrepared), navyHex);
-         assert.deepEqual(colorDiff.process(blueHex, colors1HexPrepared), blueHex);
-         assert.deepEqual(colorDiff.process(yellowHex, colors1HexPrepared), yellowHex);
-         assert.deepEqual(colorDiff.process(goldHex, colors1HexPrepared), goldHex);
+         assert.deepEqual(colorDiff.closest(whiteHex, colors1HexPrepared), whiteHex);
+         assert.deepEqual(colorDiff.closest(blackHex, colors1HexPrepared), blackHex);
+         assert.deepEqual(colorDiff.closest(navyHex, colors1HexPrepared), navyHex);
+         assert.deepEqual(colorDiff.closest(blueHex, colors1HexPrepared), blueHex);
+         assert.deepEqual(colorDiff.closest(yellowHex, colors1HexPrepared), yellowHex);
+         assert.deepEqual(colorDiff.closest(goldHex, colors1HexPrepared), goldHex);
 
-         assert.deepEqual(colorDiff.process(whiteHex, colors2HexPrepared), whiteHex);
-         assert.deepEqual(colorDiff.process(blackHex, colors2HexPrepared), blackHex);
-         assert.deepEqual(colorDiff.process(navyHex, colors2HexPrepared), blueHex);
-         assert.deepEqual(colorDiff.process(blueHex, colors2HexPrepared), blueHex);
-         assert.deepEqual(colorDiff.process(yellowHex, colors2HexPrepared), goldHex);
-         assert.deepEqual(colorDiff.process(goldHex, colors2HexPrepared), goldHex);
+         assert.deepEqual(colorDiff.closest(whiteHex, colors2HexPrepared), whiteHex);
+         assert.deepEqual(colorDiff.closest(blackHex, colors2HexPrepared), blackHex);
+         assert.deepEqual(colorDiff.closest(navyHex, colors2HexPrepared), blueHex);
+         assert.deepEqual(colorDiff.closest(blueHex, colors2HexPrepared), blueHex);
+         assert.deepEqual(colorDiff.closest(yellowHex, colors2HexPrepared), goldHex);
+         assert.deepEqual(colorDiff.closest(goldHex, colors2HexPrepared), goldHex);
       });
 
     it('should find correct furthest colors',
       function() {
-         assert.deepEqual(colorDiff.process(whiteHex, colors3HexPrepared, true), blackHex);
-         assert.deepEqual(colorDiff.process(blackHex, colors3HexPrepared, true), yellowHex);
-         assert.deepEqual(colorDiff.process(navyHex, colors3HexPrepared, true), yellowHex);
-         assert.deepEqual(colorDiff.process(blueHex, colors3HexPrepared, true), yellowHex);
-         assert.deepEqual(colorDiff.process(yellowHex, colors3HexPrepared, true), blueHex);
-         assert.deepEqual(colorDiff.process(goldHex, colors3HexPrepared, true), blueHex);
+         assert.deepEqual(colorDiff.furthest(whiteHex, colors3HexPrepared), blackHex);
+         assert.deepEqual(colorDiff.furthest(blackHex, colors3HexPrepared), yellowHex);
+         assert.deepEqual(colorDiff.furthest(navyHex, colors3HexPrepared), yellowHex);
+         assert.deepEqual(colorDiff.furthest(blueHex, colors3HexPrepared), yellowHex);
+         assert.deepEqual(colorDiff.furthest(yellowHex, colors3HexPrepared), blueHex);
+         assert.deepEqual(colorDiff.furthest(goldHex, colors3HexPrepared), blueHex);
       });
   })
 });
