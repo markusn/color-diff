@@ -40,6 +40,23 @@ var colors3HexPrepared = colorDiff.preparePalette(colors3Hex);
  */
 
 describe('index', function(){
+  describe('#preparePalette', function (){
+    it('should convert hex through to Lab',
+      function() {
+        var original = ["#fFfFfF", "#abcdef", "#000000"];
+        var prepared = colorDiff.preparePalette(original);
+        assert.deepEqual(prepared, {
+          prepared: true,
+          original: original,
+          lab: [
+            color_convert.rgb_to_lab({R: 255, G: 255, B: 255}),
+            color_convert.rgb_to_lab({R: 171, G: 205, B: 239}),
+            color_convert.rgb_to_lab({R: 0, G: 0, B: 0}),
+          ]
+        });
+      });
+  });
+
   describe('process rgb', function (){
     it('should find correct closest colors',
       function() {
