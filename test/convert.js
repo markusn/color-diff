@@ -126,7 +126,7 @@ describe('convert', function(){
     it('should convert to expected color', function(){
       assert.deepEqual(color_convert.hex_to_rgb("#fFfFfF"), {R: 255, G: 255, B: 255});
       assert.deepEqual(color_convert.hex_to_rgb("#abcdef"), {R: 171, G: 205, B: 239});
-      assert.deepEqual(color_convert.hex_to_rgb("#00000"), {R: 0, G: 0, B: 0});
+      assert.deepEqual(color_convert.hex_to_rgb("#000000"), {R: 0, G: 0, B: 0});
     });
   });
 });
