@@ -136,7 +136,7 @@ describe('palette', function(){
   describe('#map_palette_lab()', function (){
     it('should map all colors to themselves when possible #1',
        function(){
-         var expected1_1                                    = {};
+         var expected1_1                                            = {};
          expected1_1[color_palette.lab_palette_map_key(white_lab)]  = white_lab;
          expected1_1[color_palette.lab_palette_map_key(black_lab)]  = black_lab;
          expected1_1[color_palette.lab_palette_map_key(navy_lab)]   = navy_lab;
@@ -148,7 +148,7 @@ describe('palette', function(){
        });
     it('should map all colors to themselves when possible #2',
        function(){
-         var expected1_2                                      = {};
+         var expected1_2                                              = {};
          expected1_2[color_palette.lab_palette_map_key(white_a_lab)]  = white_a_lab;
          expected1_2[color_palette.lab_palette_map_key(black_a_lab)]  = black_a_lab;
          expected1_2[color_palette.lab_palette_map_key(navy_a_lab)]   = navy_a_lab;
@@ -160,7 +160,7 @@ describe('palette', function(){
        });
     it('should map navy->blue and yellow->gold when navy and yellow are missing',
        function(){
-         var expected2                                    = {};
+         var expected2                                            = {};
          expected2[color_palette.lab_palette_map_key(white_lab)]  = white_lab;
          expected2[color_palette.lab_palette_map_key(black_lab)]  = black_lab;
          expected2[color_palette.lab_palette_map_key(navy_lab)]   = blue_lab;
@@ -172,7 +172,7 @@ describe('palette', function(){
        });
     it('should map white->black & black,navy,blue->yellow & yellow,gold->blue',
        function(){
-         var expected3                                    = {};
+         var expected3                                            = {};
          expected3[color_palette.lab_palette_map_key(white_lab)]  = black_lab;
          expected3[color_palette.lab_palette_map_key(black_lab)]  = yellow_lab;
          expected3[color_palette.lab_palette_map_key(navy_lab)]   = yellow_lab;
