@@ -22,16 +22,16 @@
     "ciede2000"
   ],
   "author": "markusn kael",
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "readmeFilename": "README",
   "gitHead": "61269601ac72e65afd111565bfa68a2d13092de0",
   "bugs": {
     "url": "https://github.com/markusn/color-diff/issues"
   },
   "devDependencies": {
-    "assert": "~1.3.0",
-    "mocha": "~2.3.3",
-    "coveralls": "~2.11.4",
-    "istanbul": "~0.3.21"
+    "assert": "~1.4.1",
+    "mocha": "~5.0.4",
+    "coveralls": "~3.0.0",
+    "istanbul": "~0.4.5"
   }
 }
