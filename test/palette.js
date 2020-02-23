@@ -66,6 +66,14 @@ var yellow_a  = {'R':255 , 'G':255 ,'B':0, 'A': 1.0};
 var gold_a    = {'R':255 , 'G':215 ,'B':0, 'A': 1.0};
 var colors1_a = [white_a, black_a, navy_a, blue_a, yellow_a, gold_a]
 
+var white_a_lower   = {'r':255 , 'g':255 ,'b':255, 'a': 1.0};
+var black_a_lower   = {'r':0   , 'g':0   ,'b':0, 'a': 1.0};
+var navy_a_lower    = {'r':0   , 'g':0   ,'b':128, 'a': 1.0};
+var blue_a_lower    = {'r':0   , 'g':0   ,'b':255, 'a': 1.0};
+var yellow_a_lower  = {'r':255 , 'g':255 ,'b':0, 'a': 1.0};
+var gold_a_lower    = {'r':255 , 'g':215 ,'b':0, 'a': 1.0};
+var colors1_a_lower = [white_a_lower, black_a_lower, navy_a_lower, blue_a_lower, yellow_a_lower, gold_a_lower]
+
 var white_a_lab   = color_convert.rgb_to_lab(white_a);
 var black_a_lab   = color_convert.rgb_to_lab(black_a);
 var navy_a_lab    = color_convert.rgb_to_lab(navy_a);
@@ -89,8 +97,8 @@ describe('palette', function(){
          expected1_1[color_palette.palette_map_key(blue)]   = blue;
          expected1_1[color_palette.palette_map_key(yellow)] = yellow;
          expected1_1[color_palette.palette_map_key(gold)]   = gold;
-         assert.deepEqual(expected1_1,
-                          color_palette.map_palette(colors1, colors1));
+         assert.deepStrictEqual(expected1_1,
+                                color_palette.map_palette(colors1, colors1));
        });
     it('should map all colors to themselves when possible #2',
        function(){
@@ -101,8 +109,8 @@ describe('palette', function(){
          expected1_2[color_palette.palette_map_key(blue_a)]   = blue_a;
          expected1_2[color_palette.palette_map_key(yellow_a)] = yellow_a;
          expected1_2[color_palette.palette_map_key(gold_a)]   = gold_a;
-         assert.deepEqual(expected1_2,
-                          color_palette.map_palette(colors1_a, colors1_a));
+         assert.deepStrictEqual(expected1_2,
+                                color_palette.map_palette(colors1_a, colors1_a));
        });
     it('should map navy->blue and yellow->gold when navy and yellow are missing',
        function(){
@@ -113,8 +121,8 @@ describe('palette', function(){
          expected2[color_palette.palette_map_key(blue)]   = blue;
          expected2[color_palette.palette_map_key(yellow)] = gold;
          expected2[color_palette.palette_map_key(gold)]   = gold;
-         assert.deepEqual(expected2,
-                          color_palette.map_palette(colors1, colors2));
+         assert.deepStrictEqual(expected2,
+                                color_palette.map_palette(colors1, colors2));
        });
     it('should map white->black & black,navy,blue->yellow & yellow,gold->blue',
        function(){
@@ -125,12 +133,23 @@ describe('palette', function(){
          expected3[color_palette.palette_map_key(blue)]   = yellow;
          expected3[color_palette.palette_map_key(yellow)] = blue;
          expected3[color_palette.palette_map_key(gold)]   = blue;
-         assert.deepEqual(expected3,
-                          color_palette.map_palette(colors1,
-                                                    colors3,
-                                                    'furthest'));
+         assert.deepStrictEqual(expected3,
+                                color_palette.map_palette(colors1,
+                                                          colors3,
+                                                          'furthest'));
        });
-
+       it('should map all colors to their uppercase versions when lowercase RGBA was inputted',
+       function(){
+         var expected4                                      = {};
+         expected4[color_palette.palette_map_key(white_a_lower)]  = white_a;
+         expected4[color_palette.palette_map_key(black_a_lower)]  = black_a;
+         expected4[color_palette.palette_map_key(navy_a_lower)]   = navy_a;
+         expected4[color_palette.palette_map_key(blue_a_lower)]   = blue_a;
+         expected4[color_palette.palette_map_key(yellow_a_lower)] = yellow_a;
+         expected4[color_palette.palette_map_key(gold_a_lower)]   = gold_a;
+         assert.deepStrictEqual(expected4,
+                                color_palette.map_palette(colors1_a_lower, colors1_a, 'closest', white_a_lower));
+       });
   })
 
   describe('#map_palette_lab()', function (){
@@ -143,8 +162,8 @@ describe('palette', function(){
          expected1_1[color_palette.lab_palette_map_key(blue_lab)]   = blue_lab;
          expected1_1[color_palette.lab_palette_map_key(yellow_lab)] = yellow_lab;
          expected1_1[color_palette.lab_palette_map_key(gold_lab)]   = gold_lab;
-         assert.deepEqual(expected1_1,
-                          color_palette.map_palette_lab(colors1_lab, colors1_lab));
+         assert.deepStrictEqual(expected1_1,
+                                color_palette.map_palette_lab(colors1_lab, colors1_lab));
        });
     it('should map all colors to themselves when possible #2',
        function(){
@@ -155,8 +174,8 @@ describe('palette', function(){
          expected1_2[color_palette.lab_palette_map_key(blue_a_lab)]   = blue_a_lab;
          expected1_2[color_palette.lab_palette_map_key(yellow_a_lab)] = yellow_a_lab;
          expected1_2[color_palette.lab_palette_map_key(gold_a_lab)]   = gold_a_lab;
-         assert.deepEqual(expected1_2,
-                          color_palette.map_palette_lab(colors1_a_lab, colors1_a_lab));
+         assert.deepStrictEqual(expected1_2,
+                                color_palette.map_palette_lab(colors1_a_lab, colors1_a_lab));
        });
     it('should map navy->blue and yellow->gold when navy and yellow are missing',
        function(){
@@ -167,8 +186,8 @@ describe('palette', function(){
          expected2[color_palette.lab_palette_map_key(blue_lab)]   = blue_lab;
          expected2[color_palette.lab_palette_map_key(yellow_lab)] = gold_lab;
          expected2[color_palette.lab_palette_map_key(gold_lab)]   = gold_lab;
-         assert.deepEqual(expected2,
-                          color_palette.map_palette_lab(colors1_lab, colors2_lab));
+         assert.deepStrictEqual(expected2,
+                                color_palette.map_palette_lab(colors1_lab, colors2_lab));
        });
     it('should map white->black & black,navy,blue->yellow & yellow,gold->blue',
        function(){
@@ -179,10 +198,10 @@ describe('palette', function(){
          expected3[color_palette.lab_palette_map_key(blue_lab)]   = yellow_lab;
          expected3[color_palette.lab_palette_map_key(yellow_lab)] = blue_lab;
          expected3[color_palette.lab_palette_map_key(gold_lab)]   = blue_lab;
-         assert.deepEqual(expected3,
-                          color_palette.map_palette_lab(colors1_lab,
-                                                    colors3_lab,
-                                                    'furthest'));
+         assert.deepStrictEqual(expected3,
+                                color_palette.map_palette_lab(colors1_lab,
+                                                              colors3_lab,
+                                                              'furthest'));
        });
 
   })
@@ -190,29 +209,29 @@ describe('palette', function(){
   describe('#match_palette_lab()', function (){
     it('should match map_palette results for closest',
       function() {
-         assert.deepEqual(color_palette.match_palette_lab(white_lab, colors1_lab), white_lab);
-         assert.deepEqual(color_palette.match_palette_lab(black_lab, colors1_lab), black_lab);
-         assert.deepEqual(color_palette.match_palette_lab(navy_lab, colors1_lab), navy_lab);
-         assert.deepEqual(color_palette.match_palette_lab(blue_lab, colors1_lab), blue_lab);
-         assert.deepEqual(color_palette.match_palette_lab(yellow_lab, colors1_lab), yellow_lab);
-         assert.deepEqual(color_palette.match_palette_lab(gold_lab, colors1_lab), gold_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(white_lab, colors1_lab), white_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(black_lab, colors1_lab), black_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(navy_lab, colors1_lab), navy_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(blue_lab, colors1_lab), blue_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(yellow_lab, colors1_lab), yellow_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(gold_lab, colors1_lab), gold_lab);
 
-         assert.deepEqual(color_palette.match_palette_lab(white_lab, colors2_lab), white_lab);
-         assert.deepEqual(color_palette.match_palette_lab(black_lab, colors2_lab), black_lab);
-         assert.deepEqual(color_palette.match_palette_lab(navy_lab, colors2_lab), blue_lab);
-         assert.deepEqual(color_palette.match_palette_lab(blue_lab, colors2_lab), blue_lab);
-         assert.deepEqual(color_palette.match_palette_lab(yellow_lab, colors2_lab), gold_lab);
-         assert.deepEqual(color_palette.match_palette_lab(gold_lab, colors2_lab), gold_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(white_lab, colors2_lab), white_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(black_lab, colors2_lab), black_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(navy_lab, colors2_lab), blue_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(blue_lab, colors2_lab), blue_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(yellow_lab, colors2_lab), gold_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(gold_lab, colors2_lab), gold_lab);
       });
 
     it('should match map_palette results for furthest',
       function() {
-         assert.deepEqual(color_palette.match_palette_lab(white_lab, colors3_lab, true), black_lab);
-         assert.deepEqual(color_palette.match_palette_lab(black_lab, colors3_lab, true), yellow_lab);
-         assert.deepEqual(color_palette.match_palette_lab(navy_lab, colors3_lab, true), yellow_lab);
-         assert.deepEqual(color_palette.match_palette_lab(blue_lab, colors3_lab, true), yellow_lab);
-         assert.deepEqual(color_palette.match_palette_lab(yellow_lab, colors3_lab, true), blue_lab);
-         assert.deepEqual(color_palette.match_palette_lab(gold_lab, colors3_lab, true), blue_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(white_lab, colors3_lab, true), black_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(black_lab, colors3_lab, true), yellow_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(navy_lab, colors3_lab, true), yellow_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(blue_lab, colors3_lab, true), yellow_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(yellow_lab, colors3_lab, true), blue_lab);
+         assert.deepStrictEqual(color_palette.match_palette_lab(gold_lab, colors3_lab, true), blue_lab);
       });
   })
 });

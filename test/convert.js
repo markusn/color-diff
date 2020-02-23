@@ -39,43 +39,66 @@ var color_convert = require('../lib/convert');
 describe('convert', function(){
   describe('#rgb_to_lab()', function(){
     it('should convert to expected lab color #1', function(){
-      assert.deepEqual({'L' : 40.473, 'a' : -6.106, 'b' : -21.417},
-                       round_all(color_convert.rgb_to_lab({'R' : 55,
-                                                           'G' : 100,
-                                                           'B' : 130})));
+      assert.deepStrictEqual({'L' : 40.473, 'a' : -6.106, 'b' : -21.417},
+                             round_all(color_convert.rgb_to_lab({'R' : 55,
+                                                                 'G' : 100,
+                                                                 'B' : 130})));
     });
     it('should convert to expected lab color #2', function(){
-      assert.deepEqual({'L' : 0, 'a' : 0, 'b' : 0},
-                       round_all(color_convert.rgb_to_lab({'R' : 0,
-                                                           'G' : 0,
-                                                           'B' : 0})));
+      assert.deepStrictEqual({'L' : 0, 'a' : 0, 'b' : 0},
+                             round_all(color_convert.rgb_to_lab({'R' : 0,
+                                                                 'G' : 0,
+                                                                 'B' : 0})));
     });
     it('should convert to expected lab color #3', function(){
-      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
-                       round_all(color_convert.rgb_to_lab({'R' : 255,
-                                                           'G' : 255,
-                                                           'B' : 255})));
+      assert.deepStrictEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
+                             round_all(color_convert.rgb_to_lab({'R' : 255,
+                                                                 'G' : 255,
+                                                                 'B' : 255})));
     });
     it('should convert to expected lab color #4', function(){
-      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
-                       round_all(color_convert.rgba_to_lab({'R' : 255,
-                                                            'G' : 255,
-                                                            'B' : 255,
-                                                            'A' : 1.0})));
+      assert.deepStrictEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
+                             round_all(color_convert.rgba_to_lab({'R' : 255,
+                                                                  'G' : 255,
+                                                                  'B' : 255,
+                                                                  'A' : 1.0})));
     });
     it('should convert to expected lab color #5', function(){
-      assert.deepEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
-                       round_all(color_convert.rgba_to_lab({'R' : 0,
-                                                            'G' : 0,
-                                                            'B' : 0,
-                                                            'A' : 0.0})));
+      assert.deepStrictEqual({'L' : 100, 'a' : 0.005, 'b' : -0.010},
+                             round_all(color_convert.rgba_to_lab({'R' : 0,
+                                                                  'G' : 0,
+                                                                  'B' : 0,
+                                                                  'A' : 0.0})));
     });
     it('should convert to expected lab color #6', function(){
-      assert.deepEqual({"L": 53.389, "a": 0.003, "b": -0.006},
-                       round_all(color_convert.rgba_to_lab({'R' : 0,
-                                                            'G' : 0,
-                                                            'B' : 0,
-                                                            'A' : 0.5})));
+      assert.deepStrictEqual({"L": 53.389, "a": 0.003, "b": -0.006},
+                             round_all(color_convert.rgba_to_lab({'R' : 0,
+                                                                  'G' : 0,
+                                                                  'B' : 0,
+                                                                  'A' : 0.5})));
+    });
+    it('should convert to expected lab color #6 from lowercase RGBA object', function(){
+      assert.deepStrictEqual({"L": 53.389, "a": 0.003, "b": -0.006},
+                             round_all(color_convert.rgba_to_lab({'r' : 0,
+                                                                  'g' : 0,
+                                                                  'b' : 0,
+                                                                  'a' : 0.5})));
+    });
+  })
+
+  describe('#normalize_rgb()', function () {
+    it('should convert lowercase RGB props to uppercase', function () {
+      assert.deepStrictEqual({'R': 55, 'G': 255, 'B': 0},
+                             color_convert.normalize_rgb({'r': 55,
+                                                          'g': 255,
+                                                          'b': 0}));
+    });
+    it('should convert lowercase RGBA props to uppercase', function () {
+      assert.deepStrictEqual({'R': 55, 'G': 255, 'B': 0, 'A': 0},
+                             color_convert.normalize_rgb({'r': 55,
+                                                          'g': 255,
+                                                          'b': 0,
+                                                          'a': 0}));
     });
   })
 });
