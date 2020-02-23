@@ -68,7 +68,7 @@ Returns a mapping from the colors in palette1 to palette2.
 #### color
 `Object`
 
-`color` is an object containing 3 properties: 'R', 'G', 'B', such as:
+`color` is an object containing 3 properties: 'R', 'G', 'B' (case insensitive), such as:
 
 ```js
 { R: 255, G: 1, B: 0 }
