@@ -1,5 +1,5 @@
 # Color-diff
-[![Build Status](https://travis-ci.org/markusn/color-diff.png)](https://travis-ci.org/markusn/color-diff)
+[![Build Status](https://travis-ci.com/markusn/color-diff.png)](https://travis-ci.com/markusn/color-diff)
 [![Coverage Status](https://coveralls.io/repos/markusn/color-diff/badge.png?branch=master)](https://coveralls.io/r/markusn/color-diff?branch=master)
 
 Implements the CIEDE2000 color difference algorithm, conversion between RGB and
