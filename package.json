@@ -29,9 +29,10 @@
     "url": "https://github.com/markusn/color-diff/issues"
   },
   "devDependencies": {
+    "@linus/testy": "^1.1.0",
     "assert": "~1.4.1",
-    "mocha": "~5.0.4",
     "coveralls": "~3.0.0",
-    "istanbul": "~0.4.5"
+    "istanbul": "~0.4.5",
+    "mocha": "~5.0.4"
   }
 }
