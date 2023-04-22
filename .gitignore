@@ -47,5 +47,5 @@ reference/
 jscoverage_lib/
 temp/
 coverage/
-
-
+.eslintcache
+.nyc_output
