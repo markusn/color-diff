@@ -1,10 +1,10 @@
 {
   "name": "color-diff",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Implemets the CIEDE2000 color difference algorithm, conversion between RGB and LAB color and mapping all colors in palette X to the closest or most different color in palette Y based on the CIEDE2000 difference.",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha && ((cat coverage/lcov.info | coveralls) || exit 0)"
+    "test": "nyc --reporter=lcov mocha && eslint . --cache && tsc"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,21 @@
     "url": "https://github.com/markusn/color-diff/issues"
   },
   "devDependencies": {
-    "assert": "~1.4.1",
-    "mocha": "~5.0.4",
-    "coveralls": "~3.0.0",
-    "istanbul": "~0.4.5"
-  }
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.13",
+    "eslint": "^8.24.0",
+    "eslint-config-exp": "^0.5.0",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
+    "typescript": "^5.0.4"
+  },
+  "files": [
+    "README.md",
+    "COPYING",
+    "CHANGELOG.md",
+    "package-lock.json",
+    "package.json",
+    "index.js",
+    "lib/"
+  ]
 }
