@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * @author Markus Ekholm
  * @copyright 2012-2023 (c) Markus Ekholm <markus at botten dot org >
@@ -32,8 +30,9 @@
  * IMPORTS
  */
 
-const assert = require("assert");
-const colorDiff = require("../lib/diff");
+import * as assert from "assert";
+
+import * as colorDiff from "../lib/diff.js";
 
 /**
  * TESTS

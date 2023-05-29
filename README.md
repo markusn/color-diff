@@ -1,4 +1,5 @@
 # color-diff
+
 [![Build Status](https://github.com/markusn/color-diff/actions/workflows/build-latest.yaml/badge.svg?branch=master)](https://github.com/markusn/color-diff/actions/workflows/build-latest.yaml)
 [![Coverage Status](https://coveralls.io/repos/markusn/color-diff/badge.png?branch=master)](https://coveralls.io/r/markusn/color-diff?branch=master)
 
@@ -23,6 +24,7 @@ npm test
 ## Usage
 
 ```js
+// CommonJS
 const { 
   closest, 
   furthest,
@@ -32,7 +34,19 @@ const {
   rgbaToLab,
   mapPaletteLab,
   labPaletteMapKey,
-} = require('color-diff');
+} = require("color-diff");
+
+// ESM
+import {
+  closest,
+  furthest,
+  diff,
+  mapPalette,
+  paletteMapKey,
+  rgbaToLab,
+  mapPaletteLab,
+  labPaletteMapKey,
+} from "color-diff";
 ```
 
 ### closest(color, palette, bc)
