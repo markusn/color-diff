@@ -49,3 +49,6 @@ temp/
 coverage/
 .eslintcache
 .nyc_output
+
+# built using rollup
+index.cjs

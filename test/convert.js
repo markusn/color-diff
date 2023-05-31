@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * @author Markus Ekholm
  * @copyright 2012-2023 (c) Markus Ekholm <markus at botten dot org >
@@ -32,8 +30,9 @@
  * IMPORTS
  */
 
-const assert = require("assert");
-const { rgbaToLab, normalize } = require("../lib/convert");
+import * as assert from "assert";
+
+import { rgbaToLab, normalize } from "../lib/convert.js";
 
 /**
  * TESTS

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0
+
+* Use ESM modules. Backwards compatible with CJS using rollup.
+* Replaced nyc with c8 (nyc does not support esm).
+
 ## 1.3.0
 
 * don't support mixing casing for r,g,b properties, either all upper or all lower

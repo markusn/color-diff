@@ -1,5 +1,3 @@
-"use strict";
-
 // Types
 
 /**
@@ -21,18 +19,18 @@
  */
 
 // Imports
-const { rgbaToLab } = require("./lib/convert");
-const { ciede2000 } = require("./lib/diff");
-const {
+import { rgbaToLab } from "./lib/convert.js";
+import { ciede2000 } from "./lib/diff.js";
+import {
   mapPalette,
   paletteMapKey,
   matchPaletteLab,
   mapPaletteLab,
   labPaletteMapKey,
-} = require("./lib/palette");
+} from "./lib/palette.js";
 
 // Exports
-module.exports = {
+export {
   closest,
   closestLab,
   furthest,
@@ -42,7 +40,7 @@ module.exports = {
   matchPaletteLab,
   mapPaletteLab,
   labPaletteMapKey,
-  diff: ciede2000,
+  ciede2000 as diff,
   rgbaToLab,
   // eslint-disable-next-line camelcase
   rgb_to_lab,

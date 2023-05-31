@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * @author Markus Ekholm
  * @copyright 2012-2023 (c) Markus Ekholm <markus at botten dot org >
@@ -32,9 +30,10 @@
  * IMPORTS
  */
 
-const assert = require("assert");
-const colorPalette = require("../lib/palette");
-const { rgbaToLab } = require("../lib/convert");
+import * as assert from "assert";
+
+import * as colorPalette from "../lib/palette.js";
+import { rgbaToLab } from "../lib/convert.js";
 
 /**
  * CONSTANTS
