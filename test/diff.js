@@ -30,7 +30,8 @@
  * IMPORTS
  */
 
-import * as assert from "assert";
+import * as assert from "node:assert";
+import { describe, it } from "node:test";
 
 import * as colorDiff from "../lib/diff.js";
 
